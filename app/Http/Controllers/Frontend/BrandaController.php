@@ -141,6 +141,17 @@ class BrandaController extends CoreController
 		}
 		$banyak = DB::table('book_order_cart')->where('user_id',Auth::user()->id)->where('status','not')->count();
 		Session::put('item',$banyak);
-		return redirect('hompage_list_user_cart_success')->with('success','Semua buku sudah di checkout, silahkan menhubngi admin untuk melakkuakn / konfirmasi pembayaran!');
+		return redirect('hompage_list_user_cart_success')->with('success','Semua buku sudah di checkout, silahkan melakukan kirim pesan ke admin untuk melakkuakn / konfirmasi pembayaran!');
+	}
+
+	public function kirimPesanAdmin(Request $request)
+	{
+		DB::table('user_message')->insert([
+			'user_id'=>Auth::user()->id,
+			'message'=>$request->message,
+			'created_at'=>Carbon::now('Asia/Jakarta')->toDateTimeString(),
+			'updated_at'=>Carbon::now('Asia/Jakarta')->toDateTimeString()
+		]);
+		return redirect('hompage_branda')->with('success','Pesan sudah dikirimkan!');
 	}
 }
