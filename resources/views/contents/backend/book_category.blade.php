@@ -75,7 +75,7 @@
                         </tr>
 
                          <!-- modal -->
-                        <div class="modal fade" id="modal-edit{{$item->id}}" data-toggle="modal" data-target="#modal-edit{{$item->id}}">
+                        <div class="modal fade" id="modal-edit{{$item->id}}">
                             <div class="modal-dialog modal-xl">
                               <form action="{{url('backend_book_category_update/'.$item->id)}}" method="post">
                                 @csrf
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="modal-body">
                                   <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Cateogry Name" name="name" required>
+                                    <input type="text" class="form-control" placeholder="Cateogry Name" name="name" required value="{{$item->name}}">
                                     <div class="input-group-append">
                                       <div class="input-group-text">
                                         <span class="fa fa-book"></span>
