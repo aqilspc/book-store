@@ -8,6 +8,7 @@
       <a href="#">PROFIL</a>
       <ul>
         <li><a style="cursor: context-menu;">HALO {{Auth::user()->name}}</a></li>
+        <li><a href="{{url('hompage_my_order')}}">Pesanan Saya</a></li>
         <li> <a href="#"  onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">KELUAR</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none" style="display: none;">

@@ -154,4 +154,14 @@ class BrandaController extends CoreController
 		]);
 		return redirect('hompage_branda')->with('success','Pesan sudah dikirimkan!');
 	}
+
+	public function getBookOrder()
+	{
+		$data = DB::table('book_order as bor')
+		->join('users as us','us.id','=','bor.user_id')
+		->where('bor.user_id',Auth::user()->id)
+		->select('us.name','bor.*')
+		->get();
+		return view('contents.frontend.order',compact('data'));
+	}
 }
