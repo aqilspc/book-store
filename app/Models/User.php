@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use DB;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -42,4 +42,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getItemOrder($id)
+    {
+        $data = DB::table('book_order_item as boi')
+        ->join('book as bo','bo.id','=','boi.boo_id')
+        ->where('boi.book_order_id',$id)
+        ->select('bo.name')
+        ->get();
+        $html = '<ul>';
+        foreach ($data as $key => $value) {
+            $html .='<li>'.$item->name.'</li>';
+        }
+        $html .= '</ul>';
+        return $html;
+    }
 }

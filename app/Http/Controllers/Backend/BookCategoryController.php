@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Carbon\Carbon;
-class BookCatgeoryController extends CoreController
+class BookCategoryController extends CoreController
 {
 	public function __construct()
    {
@@ -23,7 +23,7 @@ class BookCatgeoryController extends CoreController
 	{
 		DB::table('book_category')->insert([
 			'name'=>$request->name,
-			'created_at'=>Carbon::now('Asia/Jakarta')->toDateTimeString();
+			'created_at'=>Carbon::now('Asia/Jakarta')->toDateTimeString()
 		]);
 		return redirect()->back()->with('success','Berhasil menambahkan kategori');
 	}
@@ -32,9 +32,9 @@ class BookCatgeoryController extends CoreController
 	{
 		DB::table('book_category')->where('id',$id)->update([
 			'name'=>$request->name,
-			'updated_at'=>Carbon::now('Asia/Jakarta')->toDateTimeString();
+			'updated_at'=>Carbon::now('Asia/Jakarta')->toDateTimeString()
 		]);
-		return redirect()->back()->with('success','Berhasil menambahkan kategori');
+		return redirect()->back()->with('success','Berhasil mengubah kategori');
 	}
 
 	public function delete($id)

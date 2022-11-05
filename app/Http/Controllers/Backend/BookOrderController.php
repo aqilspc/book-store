@@ -15,6 +15,16 @@ class BookOrderController extends CoreController
    
 	public function index()
 	{
-		return view('contents.backend.book_order');
+		$data = DB::table('book_order as bor')
+		->join('users as us','us.id','=','bor.user_id')
+		->select('us.name','bor.*')
+		->get();
+		return view('contents.backend.book_order',compact('data'));
+	}
+
+	public function update($id,$status)
+	{
+		DB::table('book_order')->where('id',$id)->update(['status'=>$status]);
+		return redirect()->back()->with('success','Berhasil mengubah status order');
 	}
 }

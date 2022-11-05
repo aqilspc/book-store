@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Users</h1>
+            <h1>Book</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">List</a></li>
-              <li class="breadcrumb-item active">User</li>
+              <li class="breadcrumb-item active">Catgeory</li>
             </ol>
           </div>
         </div>
@@ -30,12 +30,19 @@
             <!-- /.card -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">The list of user</h3>
+                <h3 class="card-title">The list of book catgeory</h3>
                 <p align="right">
                   <button class="btn btn-primary" class="btn btn-default" data-toggle="modal" data-target="#modal-create">
-                    Add User
+                    Add Catgeory
                   </button>
                 </p>
+                @if($message=Session::get('success'))
+                <p align="center">
+                  <div class="alert alert-success">
+                      {{$message}}
+                  </div>
+                </p>
+                @endif
               </div>
               
               <!-- /.card-header -->
@@ -46,8 +53,6 @@
                     <tr>
                       <th>No</th>
                       <th>Name</th>
-                      <th>Email</th>
-                      <th>Register At</th>
                       <th>Action</th>
                     </tr>
                     </thead>
@@ -56,8 +61,6 @@
                         <tr>
                           <td>{{$key+1}}</td>
                           <td>{{$item->name}}</td>
-                          <td>{{$item->email}}</td>
-                          <td>{{$item->created_at}}</td>
                           <td>
                             <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit{{$item->id}}">
                               <i class="fa fa-edit"></i>
@@ -65,7 +68,7 @@
                             &nbsp;&nbsp;
                             <a class="btn btn-sm btn-danger" 
                                onclick="return confirm('Yakin ingin menghapus?')"
-                               href="{{url('backend_user_list_delete/'.$item->id)}}">
+                               href="{{url('backend_book_category_delete/'.$item->id)}}">
                               <i class="fa fa-trash"></i>
                             </a>
                           </td>
@@ -74,21 +77,31 @@
                          <!-- modal -->
                         <div class="modal fade" id="modal-edit{{$item->id}}" data-toggle="modal" data-target="#modal-edit{{$item->id}}">
                             <div class="modal-dialog modal-xl">
+                              <form action="{{url('backend_book_category_update/'.$item->id)}}" method="post">
+                                @csrf
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h4 class="modal-title">Update </h4>
+                                  <h4 class="modal-title">Edit category {{$item->name}}</h4>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                  <p>One fine body&hellip;</p>
+                                  <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Cateogry Name" name="name" required>
+                                    <div class="input-group-append">
+                                      <div class="input-group-text">
+                                        <span class="fa fa-book"></span>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  <button type="button" class="btn btn-primary">Save</button>
+                                  <button type="submit" class="btn btn-primary">Save</button>
                                 </div>
                               </div>
+                              </form>
                               <!-- /.modal-content -->
                             </div>
                             <!-- /.modal-dialog -->
@@ -115,23 +128,33 @@
     <!-- modal -->
     <div class="modal fade" id="modal-create">
         <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Default Modal</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save</button>
-            </div>
+            <form action="{{url('backend_book_category_store/')}}" method="post">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tambah category </h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+              <div class="modal-body">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Cateogry Name" name="name" required>
+                      <div class="input-group-append">
+                          <div class="input-group-text">
+                              <span class="fa fa-book"></span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+              </div>
+            </form>
+        <!-- /.modal-content -->
           </div>
-          <!-- /.modal-content -->
-        </div>
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->

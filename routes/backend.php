@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\BookCatgeoryController;
+use App\Http\Controllers\Backend\BookCategoryController;
 use App\Http\Controllers\Backend\BookController;
 use App\Http\Controllers\Backend\BookOrderController;
 use App\Http\Controllers\Backend\UserController;
@@ -25,10 +25,10 @@ use App\Http\Controllers\HomeController;
  // Route::post('backend_user_update/{id}',[UserMessageController::class,'upate']);
  // Route::get('backend_user_delete/{id}',[UserMessageController::class,'delete']);
  //===================backend_book_category=========================
- Route::get('backend_book_category',[BookCatgeoryController::class,'index']);
- Route::post('backend_book_category_store',[BookCatgeoryController::class,'store']);
- Route::post('backend_book_category_update/{id}',[BookCatgeoryController::class,'upate']);
- Route::get('backend_book_category_delete/{id}',[BookCatgeoryController::class,'delete']);
+ Route::get('backend_book_category',[BookCategoryController::class,'index']);
+ Route::post('backend_book_category_store',[BookCategoryController::class,'store']);
+ Route::post('backend_book_category_update/{id}',[BookCategoryController::class,'upate']);
+ Route::get('backend_book_category_delete/{id}',[BookCategoryController::class,'delete']);
  //===================backend_book_list=========================
  Route::get('backend_book_list',[BookController::class,'index']);
  Route::post('backend_book_list_store',[BookController::class,'store']);
