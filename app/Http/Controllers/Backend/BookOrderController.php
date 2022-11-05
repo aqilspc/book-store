@@ -22,8 +22,9 @@ class BookOrderController extends CoreController
 		return view('contents.backend.book_order',compact('data'));
 	}
 
-	public function update($id,$status)
+	public function update(Request $request,$id)
 	{
+		$status = $request->status;
 		DB::table('book_order')->where('id',$id)->update(['status'=>$status]);
 		return redirect()->back()->with('success','Berhasil mengubah status order');
 	}

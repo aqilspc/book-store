@@ -47,12 +47,13 @@ class User extends Authenticatable
     {
         $data = DB::table('book_order_item as boi')
         ->join('book as bo','bo.id','=','boi.boo_id')
+        ->join('book_category as bct','bct.id','=','bo.category_id')
         ->where('boi.book_order_id',$id)
-        ->select('bo.name')
+        ->select('bo.name','bct.name as category','bo.price')
         ->get();
         $html = '<ul>';
         foreach ($data as $key => $value) {
-            $html .='<li>'.$item->name.'</li>';
+            $html .='<li> Book :'.$value->name.' | Category : '.$value->category.' | Price : Rp.'.number_format(floatval($value->price)).'</li>';
         }
         $html .= '</ul>';
         return $html;

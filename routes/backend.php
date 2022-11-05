@@ -36,5 +36,5 @@ use App\Http\Controllers\HomeController;
  Route::get('backend_book_list_delete/{id}',[BookController::class,'delete']);
  //===================backend_book_order=========================
  Route::get('backend_book_order',[BookOrderController::class,'index']);
- Route::get('backend_book_order_update/{id}/{status}',[BookOrderController::class,'update']);
+ Route::post('backend_book_order_update/{id}',[BookOrderController::class,'update']);
 ?>
