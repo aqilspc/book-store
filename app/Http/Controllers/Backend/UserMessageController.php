@@ -16,7 +16,7 @@ class UserMessageController extends CoreController
 	{
 		$data = DB::table('user_message as usm')
 				->join('users as us','us.id','=','usm.user_id')
-				->select('us.email','usm.*')
+				->select('us.email','usm.*','us.name')
 				->get();
 		return view('contents.backend.user_message',compact('data'));
 	}
