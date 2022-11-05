@@ -46,7 +46,7 @@ class User extends Authenticatable
     public function getItemOrder($id)
     {
         $data = DB::table('book_order_item as boi')
-        ->join('book as bo','bo.id','=','boi.boo_id')
+        ->join('book as bo','bo.id','=','boi.book_id')
         ->join('book_category as bct','bct.id','=','bo.category_id')
         ->where('boi.book_order_id',$id)
         ->select('bo.name','bct.name as category','bo.price')
