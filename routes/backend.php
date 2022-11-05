@@ -16,9 +16,9 @@ use App\Http\Controllers\HomeController;
  Route::get('backend_dashboard',[DashboardController::class,'index']);
  //===================backend_user_list=========================
  Route::get('backend_user_list',[UserController::class,'index']);
- Route::post('backend_user_list_store',[UserController::class,'store']);
- Route::post('backend_user_list_update/{id}',[UserController::class,'upate']);
- Route::get('backend_user_list_delete/{id}',[UserController::class,'delete']);
+ // Route::post('backend_user_list_store',[UserController::class,'store']);
+ // Route::post('backend_user_list_update/{id}',[UserController::class,'upate']);
+ // Route::get('backend_user_list_delete/{id}',[UserController::class,'delete']);
  //===================backend_user_message=========================
  Route::get('backend_user_message',[UserMessageController::class,'index']);
  // Route::post('backend_user_store',[UserMessageController::class,'store']);

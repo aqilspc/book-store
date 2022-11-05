@@ -31,12 +31,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">The list of user</h3>
-                <p align="right">
-                  <button class="btn btn-primary" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                    Add User
-                  </button>
-                </p>
-              </div>
+               </div>
               
               <!-- /.card-header -->
               <div class="card-body">
@@ -48,7 +43,7 @@
                       <th>Name</th>
                       <th>Email</th>
                       <th>Register At</th>
-                      <th>Action</th>
+                    
                     </tr>
                     </thead>
                     <tbody>
@@ -58,18 +53,10 @@
                           <td>{{$item->name}}</td>
                           <td>{{$item->email}}</td>
                           <td>{{$item->created_at}}</td>
-                          <td>
-                            <a class="btn btn-sm btn-warning" >
-                              <i class="fa fa-edit"></i>
-                            </a>
-                            &nbsp;&nbsp;
-                            <a class="btn btn-sm btn-danger" 
-                               onclick="return confirm('Yakin ingin menghapus?')"
-                               href="{{url('backend_user_list_delete/'.$item->id)}}">
-                              <i class="fa fa-trash"></i>
-                            </a>
-                          </td>
+                       
                         </tr>
+
+                       
                       @endforeach
                      </tbody>
                   </table>
@@ -87,6 +74,7 @@
     </section>
     <!-- /.content -->
   </div>
+
 @endsection
 @section('script')
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>

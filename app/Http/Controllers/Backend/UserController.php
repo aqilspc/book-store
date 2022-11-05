@@ -14,7 +14,7 @@ class UserController extends CoreController
    
 	public function index()
 	{
-		$data = DB::table('users')->where('role','member')->get();
+		$data = DB::table('users')->where('role','member')->orderBy('created_at','DESC')->get();
 		return view('contents.backend.users',compact('data'));
 	}
 }

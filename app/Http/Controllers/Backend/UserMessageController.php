@@ -14,6 +14,10 @@ class UserMessageController extends CoreController
    
 	public function index()
 	{
-		return view('contents.backend.user_message');
+		$data = DB::table('user_message as usm')
+				->join('users as us','us.id','=','usm.user_id')
+				->select('us.email','usm.*')
+				->get();
+		return view('contents.backend.user_message',compact('data'));
 	}
 }
