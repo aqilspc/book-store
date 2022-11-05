@@ -2,7 +2,7 @@
   <ul id="nav" class="sf-menu">
      @if(Auth::check())
     <li class="custom">
-     <a href=""><i class="fa fa-shopping-cart"></i> <span class='badge badge-warning' id='lblCartCount'> {{Session::get('item') != NULL ?Session::get('item'):'0'}} </span></a>
+     <a href="{{url('hompage_list_user_cart')}}"><i class="fa fa-shopping-cart"></i> <span class='badge badge-warning' id='lblCartCount'> {{Session::get('item') != NULL ?Session::get('item'):'0'}} </span></a>
     </li>
     <li class="custom">
       <a href="#">PROFIL</a>

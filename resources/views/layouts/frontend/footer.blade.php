@@ -71,5 +71,22 @@ Cufon.now();
             });
        } 
 
+       function removeToCart(val) {
+        $.ajax({
+                type: 'get',
+                url: "{{url('/hompage_remove_from_cart')}}"+"/"+ val,
+                dataType: 'json',
+                success: function (data) {
+                    $('#cart_list_'+val).remove();
+                    $('#lblCartCount').empty();
+                    $('#lblCartCount').append(data);
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+       } 
+
+
 </script>
 <!-- ENDS start cufon -->

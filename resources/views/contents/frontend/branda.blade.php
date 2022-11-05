@@ -16,7 +16,7 @@
     <div class="holder">
       @foreach($data as $key => $item)
       <div class="block {{$key == $banyak?'last':''}}">
-        <div class="thumb-holder"> <a href="gallery.html"><img src="{{$item->image}}" alt="" class="thumb" style="width: 301px;max-height: 116px;" /> </a> </div>
+        <div class="thumb-holder"> <a href="#"><img src="{{$item->image}}" alt="" class="thumb" style="width: 301px;max-height: 116px;" /> </a> </div>
         <h2 class="custom">{{$item->category}}</h2>
         <h5 class="custom color2">{{$item->name}}</h5>
         <p class="thumb-text">Rp.{{number_format($item->price)}}</p>
