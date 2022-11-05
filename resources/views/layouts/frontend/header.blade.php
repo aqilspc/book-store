@@ -30,6 +30,28 @@
 <script type="text/javascript">Cufon.replace('.custom', { fontFamily: 'bebas', hover: true });</script>
 <!-- /Cufon -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style type="text/css">
+   .badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: orange;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    /*//margin-left: -10px; */
+}
+ </style>
 </head>
 <body>
 <div id="wrapper">
@@ -37,15 +59,7 @@
   <!-- HEADER -->
   <div id="header"> <a href="index.html"><img src="img/logo.png" alt="" id="logo" /></a> 
     <!-- <img src="img/nav-arrow.png" alt="" id="arrow" class="arrow-home" /> -->
-    <form action="#" method="post" id="search">
-      <p>
-        <input type="text" onfocus="defaultInput(this)" onblur="clearInput(this)" name="keyword" id="keyword" value="Search..." />
-      </p>
-      <p>
-        <input type="submit" id="go" value="" />
-      </p>
-      <div class="clear"></div>
-    </form>
+    
   </div>
   <!-- ENDS HEADER -->
   <!-- MAIN -->

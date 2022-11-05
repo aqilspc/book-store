@@ -54,5 +54,22 @@
 </div>
 <!-- ENDS FOOTER -->
 <!-- start cufon -->
-<script type="text/javascript">Cufon.now();</script>
+<script type="text/javascript">
+Cufon.now();
+  function addToCart(val) {
+        $.ajax({
+                type: 'get',
+                url: "{{url('/hompage_add_to_cart')}}"+"/"+ val,
+                dataType: 'json',
+                success: function (data) {
+                    $('#lblCartCount').empty();
+                    $('#lblCartCount').append(data);
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
+       } 
+
+</script>
 <!-- ENDS start cufon -->
